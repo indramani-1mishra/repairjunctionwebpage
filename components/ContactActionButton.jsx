@@ -12,7 +12,7 @@ const ContactActionButton = ({ onSubmit }) => {
       {/* WhatsApp Button */}
       {isOpen && (
         <a
-          href="https://wa.me/7236005136/?text=Hello%20Repairing%20Junction%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+          href="https://wa.me/9217918881/?text=Hello%20Repairing%20Junction%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition transform hover:scale-105"
@@ -25,7 +25,7 @@ const ContactActionButton = ({ onSubmit }) => {
       {/* Call Button */}
       {isOpen && (
         <a
-          href="tel:your-phone-number"
+          href="tel:+919217918881"
           className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg transition transform hover:scale-105"
         >
           <span className="text-sm font-semibold">Call Us</span>

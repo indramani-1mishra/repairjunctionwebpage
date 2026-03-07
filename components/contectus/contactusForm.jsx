@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { FiUser, FiMail, FiPhone, FiMessageCircle } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
+import { sendEnquiry } from "../sendenquiry/sendEnquery";
+import { toast } from "react-toastify";
 
 const formFields = [
   { label: "Name", type: "text", name: "name" },
@@ -30,22 +32,40 @@ const ContactUsForm = () => {
     phone: "",
     message: "",
     enquiryType: enquiryTypes[0],
+    time:new Date().toLocaleString()
   });
+   
+  const [loading,setloading]= useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formdata,
       [e.target.name]: e.target.value,
     });
-  };
+  }
+  
 
-  const handleSubmit = (e) => {
+  
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formdata);
-
-    // API call yaha kar sakte ho
-  };
-
+    const {name,phone,enquiryType}=formdata;
+    if(!name||!phone||!enquiryType){
+      
+      toast.warning("name or phone or enquiryType is required please fill this ");
+      
+    }else{
+      await sendEnquiry(formdata,loading,setloading);
+      setFormData({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    enquiryType: enquiryTypes[0],
+   
+    })
+    }
+    }
   return (
     <form
       onSubmit={handleSubmit}
@@ -115,7 +135,9 @@ outline-none  capitalize"
         type="submit"
         className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-2 px-4 rounded-md transition cursor-pointer flex items-center justify-center"
       >
-        <span className="mr-2"><FiMessageCircle /></span>Send Enquiry
+        <span className="mr-2"><FiMessageCircle /></span>{
+          loading? "sending....":"Send Enquiry"
+        }
       </button>
       
     </form>

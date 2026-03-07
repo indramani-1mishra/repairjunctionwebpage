@@ -47,12 +47,12 @@ export default async function ServicePage({ params }) {
 
         {/* Hero Section with Image */}
         {service.image && (
-          <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-lg mb-12">
+          <div className="relative h-100 w-full  rounded-2xl overflow-hidden shadow-lg mb-12">
             <Image
               src={service.image}
               alt={service.title}
               fill
-              className="object-cover"
+              className=""
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>

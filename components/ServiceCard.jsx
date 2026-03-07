@@ -24,7 +24,7 @@ export default function ServiceCard({ service }) {
     >
       {/* Image Section */}
       {image && (
-        <div className="relative h-48 w-full overflow-hidden bg-gray-100 dark:bg-gray-700">
+        <div className="relative h-58 w-full overflow-hidden bg-gray-100 dark:bg-gray-700">
           <Image
             src={image}
             alt={title}
