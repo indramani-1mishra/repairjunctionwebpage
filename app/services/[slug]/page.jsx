@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MdAddCall } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
+
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
@@ -13,14 +14,20 @@ export async function generateMetadata({ params }) {
 
   const service = services.find((s) => s.slug === slug);
 
+  if (!service) {
+    return {
+      title: "Service | Repair Junction",
+    };
+  }
+
   return {
-    title: service ? `${service.title} | Repair Junction` : 'Service',
-    description: service ? service.description : '',
+    title: `${service.title} | Repair Junction`,
+    description: `Professional ${service.title} repair service with certified technicians.`,
+    keywords: `${service.title} repair, appliance repair`,
   };
 }
-
 export default async function ServicePage({ params }) {
-  const { slug } = await params;
+  const { slug } =  await params;
 
   const service = services.find((s) => s.slug === slug);
 
@@ -121,7 +128,7 @@ export default async function ServicePage({ params }) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="tel:+919999999999"
+              href="tel:+919217918881"
               className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors inline-block"
             >
               <MdAddCall className="inline mr-2" />

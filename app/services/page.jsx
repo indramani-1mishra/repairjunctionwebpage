@@ -1,16 +1,14 @@
 import { services } from "../../lib/services";
 import ServiceList from "../../components/ServiceList";
 import { FaTools, FaBolt, FaCheckCircle } from "react-icons/fa";
-
+export const dynamic = "force-static";
 export const metadata = {
   title: "Our Services | Repair Junction",
   description:
     "Professional repair and maintenance services for AC, refrigerators, and washing machines",
 };
 
-
-
-export default function ServicesPage() {
+export default function page() {
   return (
     <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
 

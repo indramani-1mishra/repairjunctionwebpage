@@ -6,12 +6,19 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { sendEnquiry } from "../sendenquiry/sendEnquery";
 import { toast } from "react-toastify";
 
+export const dynamic = "force-static";
 const formFields = [
   { label: "Name", type: "text", name: "name" },
   { label: "Email", type: "email", name: "email" },
   { label: "Phone", type: "tel", name: "phone" },
   { label: "Message", type: "textarea", name: "message" },
 ];
+
+export const metadata = {
+  title: "Contact Us",
+  description:
+    "Contact Repair Junction for fast appliance repair services.",
+};
 
 const enquiryTypes = [
   "select enquiry type",
@@ -25,7 +32,7 @@ const enquiryTypes = [
   "other",
 ];
 
-const ContactUsForm = () => {
+const Page = () => {
   const [formdata, setFormData] = useState({
     name: "",
     email: "",
@@ -144,4 +151,4 @@ outline-none  capitalize"
   );
 };
 
-export default ContactUsForm;
+export default Page;
